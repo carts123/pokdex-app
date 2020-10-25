@@ -24,7 +24,7 @@ console.log(pokemonRepository.getAll());
 pokemonRepository.add({ name: 'Squirtle', height: 0.5, types: ['water']});
 console.log(pokemonRepository.getAll());
 
-pokemonList.forEach(function(add) {
+pokemonRepository.getAll().forEach(function(pokemon) {
   document.write((pokemon.name + " " + pokemon.height +"<br/>"));
 });
 
