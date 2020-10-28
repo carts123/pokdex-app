@@ -1,9 +1,17 @@
 let pokemonRepository = (function () {
 let pokemonList = [
-  { name: 'Charmander', height: 0.6, types: ['steel', 'fire', 'ice']},
-  { name: 'Jigglypuff', height: 0.5, types: ['bug', 'dark', 'ghost']},
-  { name: 'Pidgeot', height: 1.5, types: ['rock', 'electric', 'ice']},
-  { name: 'Psyduck', height: 0.8, types: ['grass', 'electric', 'fire']},
+  {
+    name: 'Charmander', height: 0.6, types: ['steel', 'fire', 'ice']
+  },
+  {
+    name: 'Jigglypuff', height: 0.5, types: ['bug', 'dark', 'ghost']
+  },
+  {
+    name: 'Pidgeot', height: 1.5, types: ['rock', 'electric', 'ice']
+  },
+  {
+    name: 'Psyduck', height: 0.8, types: ['grass', 'electric', 'fire']
+  },
 ];
 
 function add(pokemon) {
@@ -14,9 +22,20 @@ function getAll() {
   return pokemonList;
 }
 
+function addListItem(pokemon){
+  let pokemonList = document.querySelector('.pokemon-list');
+  let listpokemon = document.createElement('li');
+  let button = document.createElement('button');
+  button.innerText = pokemon.name;
+  button.classList.add('.button-class');
+  listpokemon.appendChild(button);
+  pokemonList.appendChild(listpokemon);
+}
+
 return {
   add: add,
-  getAll: getAll
+  getAll: getAll,
+  addListItem: addListItem
 };
 })();
 
@@ -24,8 +43,9 @@ console.log(pokemonRepository.getAll());
 pokemonRepository.add({ name: 'Squirtle', height: 0.5, types: ['water']});
 console.log(pokemonRepository.getAll());
 
-pokemonRepository.getAll().forEach(function(pokemon) {
-  document.write((pokemon.name + " " + pokemon.height +"<br/>"));
+pokemonRepository.getAll().forEach(function (pokemon) {
+
+  pokemonRepository.addListItem(pokemon);
 });
 
 
