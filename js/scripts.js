@@ -21,7 +21,7 @@ function add(pokemon) {
 function getAll() {
   return pokemonList;
 }
-
+//writes the pokemon as a list of buttons
 function addListItem(pokemon){
   let pokemonList = document.querySelector('.pokemon-list');
   let listpokemon = document.createElement('li');
@@ -30,6 +30,13 @@ function addListItem(pokemon){
   button.classList.add('.button-class');
   listpokemon.appendChild(button);
   pokemonList.appendChild(listpokemon);
+  button.addEventListener('click',() => {
+    showDetails(pokemon);
+  });
+}
+
+function showDetails(pokemon) {
+  console.log(showDetails);
 }
 
 return {
