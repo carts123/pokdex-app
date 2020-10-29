@@ -36,7 +36,7 @@ function addListItem(pokemon){
 }
 
 function showDetails(pokemon) {
-  console.log(showDetails);
+  console.log(pokemon);
 }
 
 return {
