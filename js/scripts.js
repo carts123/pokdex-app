@@ -13,8 +13,8 @@ function getAll() {
 }
 //writes the pokemon as a list of buttons
 function addListItem(pokemon){
-  let pokemonList = document.querySelector('.pokemon-list');
-  let listpokemon = document.createElement('li');
+  let pokemonList = $('.pokemon-list');
+  let listpokemon = $('li');
   let button = document.createElement('button');
   button.innerText = pokemon.name;
   button.classList.add('.button-class');
@@ -24,7 +24,7 @@ function addListItem(pokemon){
     showDetails(pokemon);
 });
 }
-
+// fetches information from API
 function loadList(pokemon) {
   return fetch(apiUrl).then(function (response) {
     return response.json();
@@ -43,6 +43,7 @@ function loadList(pokemon) {
   });
 }
 
+// fetches pokemon details from the API
 function loadDetails(item) {
   let url = item.detailsUrl;
   return fetch(url).then(function (response) {
@@ -81,7 +82,7 @@ pokemonRepository.loadList().then(function() {
 
 //Shows the modal in the browser
 
-let modalContainer = document.querySelector('#modal-container');
+/* let modalContainer = document.querySelector('#pokemonModal');
 function showModal(pokemon) {
   modalContainer.innerHTML = '';
   let modal = document.createElement('div');
@@ -105,14 +106,28 @@ function showModal(pokemon) {
 
   let imageElement = document.createElement('img')
   ;
-  imageElement.src = pokemon.imageUrl;
+  imageElement.src = pokemon.imageUrl; */
 
+function showModal(pokemon) {
+  let modalBody = $('.modal-body');
+  let modalTitle = $('.modal-title');
+  let modalHeader = $('modal-header');
 
-  modal.appendChild(closeButtonElement);
-  modal.appendChild(nameElement);
-  modal.appendChild(heightElement);
-  modal.appendChild(imageElement);
-  modalContainer.appendChild(modal);
+  modalTitle.empty();
+  modalBody.empty();
+
+  let nameElement = $('<h1>' + pokemon.name +'</h1>');
+
+  let heightElement = $('<p>' + 'height : ' + pokemon.height + '</p>');
+
+}
+
+  modalTitle.append(nameElement);
+  modal.append(closeButtonElement);
+  modalBody.append(nameElement);
+  modalBody.append(heightElement);
+  //modal.append(imageElement);
+  //modalContainer.appendChild(modal);
 
 
   modalContainer.classList.add('is-visible');
@@ -137,19 +152,6 @@ modalContainer.addEventListener('click', (e) => {
 });
 
 
-document.querySelector('#show-modal').addEventListener('click', () => {
+$('#show-modal').addEventListener('click', () => {
   showModal('pokemon.name', 'pokemon.height', 'pokemon.imageUrl');
 });
-
-
-
-
-//for (let i = 0; i < pokemonList.length; i++) {
-//  document.write(pokemonList[i].name + " ");
-//  if (pokemonList[i].height >= 1.0) {
-//    document.write("(height: " + pokemonList[i].height + ") - Wow that's big! <br/>")
-//  }
-//  else if (pokemonList[i].height < 1.0) {
-  //  document.write("(height: " + pokemonList[i].height +")<br/>")
-  //}
-//}
