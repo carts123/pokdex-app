@@ -18,10 +18,10 @@ function addListItem(pokemon){
   let button = document.createElement('button');
   button.innerText = pokemon.name;
   button.classList.add('.btn-btn-primary-btn-lg');
-  button.setAttribute('data-target', '#pokedexmodal');
+  button.setAttribute('data-target', '#pokemonModal');
   button.setAttribute('data-toggle', 'modal');
-  listpokemon.append(button);
-  pokemonList.append(listpokemon);
+  listpokemon.appendChild(button);
+  pokemonList.appendChild(listpokemon);
   button.addEventListener('click', function(event) {
     showDetails(pokemon);
 });
@@ -67,9 +67,6 @@ function loadDetails(item) {
     console.error(e);
   });
 }
-
-
-});
 
 //Shows the modal in the browser
 
@@ -131,9 +128,10 @@ function showModal(pokemon) {
 })();
 
   pokemonRepository.loadList().then(function() {
-   pokemonRepository.getAll().forEach(function (pokemon) {
-    pokemonRepository.addListItem(pokemon);
+   pokemonRepository.getAll().forEach(function (pokemonModal) {
+    pokemonRepository.addListItem(pokemonModal);
    });
+});
 
 /* {
   modalContainer.classList.add('is-visible');
