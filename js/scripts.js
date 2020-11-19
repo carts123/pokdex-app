@@ -1,6 +1,6 @@
 let pokemonRepository = (function () {
 let pokemonList = [];
-let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=50';
+let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=100';
 
 //adds a new pokemon item to array
 function add(pokemon) {
@@ -66,6 +66,8 @@ function loadDetails(item) {
     item.imageUrl = details.sprites.front_default;
     item.height = details.height;
     item.types = details.types;
+    item.weight = details.weight;
+    item.abilities = details.abilities;
   }).catch(function (e) {
     console.error(e);
   });
@@ -113,7 +115,9 @@ function showModal(pokemon) {
 
   let weightElement = $('<p>' + 'weight : ' + pokemon.weight + '</p>');
 
-  //let typesElement = $('<p>' + 'types : ' + item.types + '</p>');
+  let typesElement = $('<p>' + 'types : ' + pokemon.types + '</p>');
+
+  let abilitiesElement = $('<p>' + 'abilities : ' + pokemon.abilities + '</p>');
 
   let imageElement = $('<img class="modal-img" style="width:50%">');
   imageElement.attr('src', pokemon.imageUrl);
@@ -121,9 +125,11 @@ function showModal(pokemon) {
 
   modalTitle.append(nameElement);
   //modal.append(closeButtonElement);
+  modalBody.append(imageElement);
   modalBody.append(heightElement);
   modalBody.append(weightElement);
-  modalBody.append(imageElement);
+  modalBody.append(typesElement);
+  modalBody.append(abilitiesElement);
   //modalContainer.appendChild(modal);
 }
   return {

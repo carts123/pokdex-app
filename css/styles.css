@@ -21,9 +21,6 @@ body {
   margin-top: 60px;
 }
 
-.pokemon-list {
-  list-style-type: none;
-}
 
 /*.button-class {
   /background-color: #4caf50;
@@ -57,7 +54,7 @@ body {
   text-align: center;
 }
 
-/*.modal {
+/* .modal {
   position: fixed;
   top: 50%;
   left: 50%;
