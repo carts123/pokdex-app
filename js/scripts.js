@@ -18,7 +18,7 @@ function addListItem(pokemon){
   let button = document.createElement('button');
 
   button.innerText = pokemon.name;
-  button.classList.add('btn-btn-primary');
+  button.classList.add('btn', 'btn-secondary', 'btn-lg');
   button.setAttribute('data-target', '#pokemonModal');
   button.setAttribute('data-toggle', 'modal');
 
@@ -89,9 +89,9 @@ function showModal(pokemon) {
 
   let weightElement = $('<p>' + 'weight : ' + pokemon.weight + '</p>');
 
-  let typesElement = $('<p>' + 'types : ' + pokemon.types + '</p>');
+  //let typesElement = $('<p>' + 'types : ' + pokemon.types + '</p>');
 
-  let abilitiesElement = $('<p>' + 'abilities : ' + pokemon.abilities + '</p>');
+  //let abilitiesElement = $('<p>' + 'abilities : ' + pokemon.abilities + '</p>');
 
   let imageElement = $('<img class="modal-img" style="width:50%">');
   imageElement.attr('src', pokemon.imageUrl);
@@ -102,8 +102,8 @@ function showModal(pokemon) {
   modalBody.append(imageElement);
   modalBody.append(heightElement);
   modalBody.append(weightElement);
-  modalBody.append(typesElement);
-  modalBody.append(abilitiesElement);
+  //modalBody.append(typesElement);
+  //modalBody.append(abilitiesElement);
   //modalContainer.appendChild(modal);
 }
   return {
