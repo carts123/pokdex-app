@@ -1,4 +1,4 @@
-# **pokedéx-app**
+# **pokédex-app**
 This project is a web app using HTML, CSS, and JavaScript. It loads data from an external API and shows details about Pokémon.
 
 ### [The application is deployed here.](https://carts123.github.io/pokdex-app/)
